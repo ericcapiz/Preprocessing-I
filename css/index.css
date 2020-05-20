@@ -129,15 +129,33 @@ table {
 html,
 body {
   height: 100%;
-  background: lightgray;
+  background: lightgrey;
 }
 /* Set every element's box-sizing to border-box */
 * {
   box-sizing: border-box;
 }
+.h2 {
+  margin: 15px 0;
+  font-size: 40px;
+}
+.flexRow {
+  display: flex;
+  flex-direction: row;
+}
 .container {
   max-width: 1200px;
   margin: 0 auto;
+}
+@media (max-width: 500px) {
+  .container {
+    width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  .container header {
+    width: 100%;
+  }
 }
 .container header nav {
   display: flex;
@@ -159,12 +177,25 @@ body {
   height: 300px;
   margin: 50px 0 0 20px;
 }
+@media (max-width: 500px) {
+  .container #intro img {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    left: 100px;
+  }
+}
 .container #intro h1 {
   font-size: 40px;
   font-weight: 400;
   text-align: left;
   margin-top: 20px;
   margin-left: 20px;
+}
+@media (max-width: 500px) {
+  .container #intro h1 {
+    font-size: 30px;
+  }
 }
 .container #intro h3 {
   margin: 20px;
@@ -189,18 +220,45 @@ body {
   flex-direction: row;
   padding: 20px;
 }
+@media (max-width: 500px) {
+  .container #technology {
+    display: flex;
+    flex-direction: column;
+  }
+}
 .container #technology .project {
   width: 100%;
+}
+@media (max-width: 500px) {
+  .container #technology .project {
+    display: inline-flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
 }
 .container #technology .project h2 {
   margin: 15px 0;
   font-size: 40px;
+  padding: 10px 0;
 }
 .container #technology .project img {
   padding: 55px;
 }
-.container #technology #skills {
-  margin-top: 50px;
+@media (max-width: 500px) {
+  .container #technology .project img {
+    padding: 20px 0;
+  }
+}
+@media (max-width: 500px) {
+  .container #technology #skills {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+  }
 }
 .container #technology #skills h2 {
   margin: 15px 0;
@@ -208,8 +266,13 @@ body {
 }
 .container #technology #skills table {
   width: 250px;
-  margin: 40px 0;
+  margin: 80px 0;
   text-align: left;
+}
+@media (max-width: 500px) {
+  .container #technology #skills table {
+    margin: 20px 0;
+  }
 }
 .container #technology #skills table tr {
   border-bottom: 2px solid grey;
@@ -218,12 +281,17 @@ body {
   padding: 20px 0;
   font-size: 20px;
 }
+@media (max-width: 500px) {
+  .container #technology #skills table tr td {
+    text-align: center;
+  }
+}
 .container #history {
   background-color: lightblue;
   padding: 20px;
 }
 .container #history h2 {
-  margin: 15px 20px;
+  margin: 15px 0;
   font-size: 40px;
 }
 .container #history table {
@@ -244,7 +312,7 @@ body {
   padding: 10px 50px;
 }
 .container #contact {
-  background-color: gray;
+  background-color: grey;
   display: flex;
   flex-direction: row;
   justify-content: center;

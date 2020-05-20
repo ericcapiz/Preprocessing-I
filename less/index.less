@@ -49,19 +49,46 @@ table {
 }
 html, body {
 	height: 100%;
-	background: lightgray;
+	background:@backgroundGrey;
 }
 
 /* Set every element's box-sizing to border-box */
 * {
     box-sizing: border-box;
 }
+
+
+// #####VARIABLES#####
+
+@backgroundGrey: lightgrey;
+@backgroundBlue: lightblue; 
+@backgroundDarkGrey: grey;
+
+// ##END-VARIABLES##
+
+// #####MIXINS#####
+
+.h2 { margin: 15px 0;
+	font-size: 40px;
+}
+
+.flexRow {
+	display: flex;
+	flex-direction: row;
+}
+// ##END-MIXINS##
+
 .container{
 	max-width: 1200px;
-    margin: 0 auto;
+	margin: 0 auto;
+	@media(max-width: 500px){
+		width: 100%;
+	}
 
 header{
-	
+	@media(max-width: 500px){
+		width: 100%;
+	}
 	nav{
 		display: flex;
 		justify-content: flex-end;
@@ -76,11 +103,22 @@ header{
 	}
 }
 #intro{
-	background-color: lightblue;
+	background-color: @backgroundBlue;
 	img{
+		// display: flex;
 		width: 300px;
 		height: 300px;
 		margin: 50px 0 0 20px;
+		@media(max-width: 500px){
+			width: 200px;
+			height: 200px;
+			position: relative;
+			left: 100px;
+			// margin: 0 50px;
+			// flex-direction: row;
+			// align-items: center;
+			// justify-content: center;
+		}
 	}
 	h1{
 		font-size: 40px;
@@ -88,6 +126,9 @@ header{
 		text-align: left;
 		margin-top: 20px;
 		margin-left: 20px;
+		@media(max-width: 500px){
+			font-size: 30px;
+		}
 	}
 	h3{
 		margin: 20px;
@@ -109,35 +150,59 @@ header{
 	}
 }
 #technology{
-	display: flex;
-	flex-direction: row;
+	@media(max-width: 500px){
+		display: flex;
+		flex-direction: column;
+	}
+	.flexRow();
 	padding: 20px;
 	.project{
 		width: 100%;
+		@media(max-width: 500px){
+			display: inline-flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+			justify-content: center;
+			align-items: center;
+		}
 		h2{
-			margin: 15px 0;
-			font-size: 40px;
+			.h2();
+			padding: 10px 0;
 		}
 		img{
 			padding: 55px;
+			@media(max-width: 500px){	
+			padding: 20px 0;
+			}
 		}
 	}
 	#skills{
-		margin-top: 50px;
+		@media(max-width: 500px){
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			margin-top: 50px;
+		}
 		
 		h2{
-			margin: 15px 0;
-			font-size: 40px;
+			.h2();
 		}
 		table{
 			width: 250px;
-			margin: 40px 0;
+			margin: 80px 0;
 			text-align: left;
+			@media(max-width: 500px){
+				margin: 20px 0;
+			}
 			tr{
-				border-bottom: 2px solid grey;
+				border-bottom: 2px solid@backgroundDarkGrey;
 				td{
 					padding: 20px 0;
 					font-size: 20px;
+					@media(max-width: 500px){
+						text-align: center;
+					}
 					
 				}
 			}
@@ -145,36 +210,53 @@ header{
 	}
 }
 #history{
-	background-color: lightblue;
+	background-color:@backgroundBlue;
 	padding: 20px;
-	
+	// @media(max-width: 500px){
+	// 	width: 100%;
+	// }
 	h2{
-		margin: 15px 20px;
-		font-size: 40px;
+		.h2();
+		// @media(max-width: 500px){
+		// 	font-size: 30px;
+		// }
 	}
 	table{
 		width: 100%;
 		margin: 40px 0;
 		text-align: left;
 		font-size: 20px;
+		// @media(max-width: 500px){
+		// 	width: 100%;
+		// 	.flexRow();
+		// }
 		tr{
-			border-bottom: 2px solid grey;
+			border-bottom: 2px solid @backgroundDarkGrey;
 			padding: 50px;
+			// @media(max-width: 500px){
+			// 	width: 100%;
+			// }
 			th{
 				padding: 15px 50px;
 				font-style: bold;
+				// @media(max-width: 500px){
+				// 	width: 100%;
+				// }
 			}
 			td{
 				padding: 10px 50px;
+				// @media(max-width: 500px){
+				// 	width: 100%;
+				// }
 				
 			}
 		}
+		
 	}
 }
 #contact{
-	background-color: gray;
-	display: flex;
-	flex-direction: row;
+	background-color:@backgroundDarkGrey;
+	.flexRow();
 	justify-content: center;
 	align-items: center;
 	color: white;
